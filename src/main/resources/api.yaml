@@ -1,0 +1,32 @@
+swagger: "2.0"
+basePath: /v2
+info:
+  version: "1.0"
+  title: "Just Another Tutorial API"
+paths:
+  /images:
+    get:
+      tags:
+        - Image
+      summary: "Get images"
+      operationId: "getImages"
+      description: "Read image files under resources, encoding as base64 and return as a string"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            $ref: GetImagesResponse
+
+definitions:
+  GetImagesResponse:
+    type: "array"
+    items:
+      $ref: "Image"
+
+  Image:
+    properties:
+      value:
+        type: "string"
+        description: "Base64 value of an image"
